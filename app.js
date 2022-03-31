@@ -154,7 +154,9 @@ const checkCards = (e) => {
       playerLives--;
       playerLivesCount.textContent = playerLives;
       if (playerLives === 0) {
-        restartGame("Try better next time! Don't give up.");
+        setTimeout(() => {
+          restartGame("Try better next time! Don't give up.");
+        }, 1000);
       }
     }
   }
