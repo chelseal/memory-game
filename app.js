@@ -161,7 +161,9 @@ const checkCards = (e) => {
   // Run a check to see if we won the game
   // if all are toggledcards
   if (toggleCards.length === 16) {
-    restartGame("You have won!");
+    setTimeout(() => {
+      restartGame("You have won!");
+    }, 1000);
   }
 };
 
