@@ -27,6 +27,10 @@ section {
   padding: 1rem; /* adds space between cards and Lives counter */
 }
 
+img {
+  transform: rotateY(180deg); /* card faces correct direction - L to R */
+}
+
 /* To prevent images overflowing  */
 .card {
   position: relative;
