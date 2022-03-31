@@ -25,13 +25,10 @@ section {
   grid-gap: 1rem;
   perspective: 800px; /* required for preserve-3d on .card */
   padding: 1rem; /* adds space between cards and Lives counter */
-<<<<<<< HEAD
 }
 
 img {
   transform: rotateY(180deg); /* card faces correct direction - L to R */
-=======
->>>>>>> 34b0cedf9296b940222a738ec4c6b699c8d3a0d1
 }
 
 /* To prevent images overflowing  */
