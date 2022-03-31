@@ -2,7 +2,7 @@ const section = document.querySelector("section");
 
 const playerLivesCount = document.querySelector("span");
 
-let playerLives = 12;
+let playerLives = 16;
 
 playerLivesCount.textContent = playerLives;
 
@@ -154,14 +154,18 @@ const checkCards = (e) => {
       playerLives--;
       playerLivesCount.textContent = playerLives;
       if (playerLives === 0) {
-        restartGame("Try better next time! Don't give up.");
+        setTimeout(() => {
+          restartGame("Try better next time! Don't give up.");
+        }, 1000);
       }
     }
   }
   // Run a check to see if we won the game
   // if all are toggledcards
   if (toggleCards.length === 16) {
-    restartGame("You have won!");
+    setTimeout(() => {
+      restartGame("You have won!");
+    }, 1000);
   }
 };
 
@@ -182,7 +186,7 @@ const restartGame = (text) => {
     }, 1000);
   });
   //reset playerLives
-  playerLives = 6;
+  playerLives = 16;
   playerLivesCount.textContent = playerLives;
   setTimeout(() => window.alert(text), 100);
 };
