@@ -2,7 +2,7 @@ const section = document.querySelector("section");
 
 const playerLivesCount = document.querySelector("span");
 
-const playerLives = 6;
+let playerLives = 6;
 
 playerLivesCount.textContent = playerLives;
 
@@ -104,6 +104,7 @@ const shuffleCards = (arr) => {};
 const generateHTMLCard = () => {
   // Get the shuffled version of cards
   const cardData = randomiseCards();
+
   // Generate HTML - To generate 16 cards, need loop
   cardData.forEach((item) =>{ 
 
@@ -116,12 +117,65 @@ const generateHTMLCard = () => {
     //Attach the information to the cards
     face.src = item.imgSrc;
     // back = item.explanation;
+    cards[index].setAttribute('name', item.name);
 
     //Attach the cards to the section
     section.appendChild(card);
     card.appendChild(face);
     card.appendChild(back);
+
+    // toggle card front to back
+    card.addEventListener('click', (e) => {
+      card.classList('toggleCard');
+      checkCards(e); // check cards on every toggle
+    })
   })
+};
+
+// check cards match
+const checkCards = (e) => {
+  const clickedCard = e.target;
+  clickedCard.classList.add('flipped');
+  const flippedCards = document.querySelectorAll('.flipped');
+
+  if(flippedCards.length === 2) {
+    if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
+      console.log(match);
+      flippedCards.forEach((card) => {
+        card.classList.remove('flipped');
+        card.style.pointerEvents = 'none';/* cannot be clicked on once a match is found */
+      });
+    } else {
+      console.log("not a match");
+      flippedCards.forEach(card => {
+        card.classList.remove('flipped');
+        setTimeout(() => card.classList.remove('toggleCard'), 1000); /* delay animation */
+      });
+      playerLives--;
+      playerLivesCount.textContent = playerLives;
+      if(playerLives === 0) {
+        restart();
+      }
+    }
+  }
+  console.log(clickedCard);
+
+  // restart
+  const restart = () => {
+    let cardData = randomize();
+    let faces = document.querySelectorAll('.face');
+    let cards = document.querySelectorAll('.cards');
+    cardData.forEach((item, index) => {
+      cards[index].classList.remove('toggleCard');
+      // reandomise
+      cards[index].style.pointerEvents = 'all';
+      faces[index].src = item.imgSrc;
+      cards[index].setAttribute('name', item.name);
+    });
+    // reset player lives
+    playerLives = 6;
+    playerLivesCount.textContent = playerLives;
+  }
 };
 
 generateHTMLCard();
