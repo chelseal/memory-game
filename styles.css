@@ -22,8 +22,9 @@ section {
   display: grid;
   grid-template-columns: repeat(4, 8rem);
   grid-template-rows: repeat(4, 8rem);
-  grid-gap: 3rem;
+  grid-gap: 1rem;
   perspective: 800px; /* required for preserve-3d on .card */
+  padding: 1rem; /* adds space between cards and Lives counter */
 }
 
 /* To prevent images overflowing  */
