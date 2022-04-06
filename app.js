@@ -2,6 +2,8 @@ const section = document.querySelector("section");
 
 const playerLivesCount = document.querySelector("span");
 
+const button = document.querySelector("button");
+
 let playerLives = 16;
 
 playerLivesCount.textContent = playerLives;
@@ -124,6 +126,12 @@ const generateHTMLCard = () => {
   });
 };
 
+const generateRestartButton = () => {
+  button.classList.add("btn");
+  button.setAttribute("type", "button");
+  button.addEventListener("click", restartGame);
+};
+
 //Check cards
 const checkCards = (e) => {
   // console.log(e);
@@ -192,6 +200,7 @@ const restartGame = (text) => {
 };
 
 generateHTMLCard();
+generateRestartButton();
 
 // const getData = () => [
 //   {
