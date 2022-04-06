@@ -1,78 +1,74 @@
 const section = document.querySelector("section");
-
 const playerLivesCount = document.querySelector("span");
-
 let playerLives = 16;
-
 playerLivesCount.textContent = playerLives;
 
 // Generate the data
 const getData = () => [
   {
     imgSrc: "./img/bit.png",
-    // methodName: "Math.abs(x)",
-    explanation: "bits",
+    name: "bits",
   },
   {
     imgSrc: "./img/lights.png",
-    explanation: "lights",
+    name: "lights",
   },
   {
     imgSrc: "./img/link.png",
-    explanation: "link",
+    name: "link",
   },
   {
     imgSrc: "./img/pin.png",
-    explanation: "pin",
+    name: "pin",
   },
   {
     imgSrc: "./img/set_up.png",
-    explanation: "set-up",
+    name: "set-up",
   },
   {
     imgSrc: "./img/sushi.png",
-    explanation: "sushi",
+    name: "sushi",
   },
   {
     imgSrc: "./img/tree.png",
-    explanation: "tree",
+    name: "tree",
   },
   {
     imgSrc: "./img/voting.png",
-    explanation: "voting",
+    name: "voting",
   },
   {
     imgSrc: "./img/bit.png",
     // methodName: "Math.abs(x)",
-    explanation: "bits",
+    name: "bits",
   },
   {
     imgSrc: "./img/lights.png",
-    explanation: "lights",
+    name: "lights",
   },
   {
     imgSrc: "./img/link.png",
-    explanation: "link",
+    name: "link",
   },
   {
     imgSrc: "./img/pin.png",
-    explanation: "pin",
+    name: "pin",
   },
   {
     imgSrc: "./img/set_up.png",
-    explanation: "set-up",
+    name: "set-up",
   },
   {
     imgSrc: "./img/sushi.png",
-    explanation: "sushi",
+    name: "sushi",
   },
   {
     imgSrc: "./img/tree.png",
-    explanation: "tree",
+    name: "tree",
   },
   {
     imgSrc: "./img/voting.png",
-    explanation: "voting",
+    name: "voting",
   },
 ];
 
@@ -108,9 +104,9 @@ const generateHTMLCard = () => {
     back.classList = "back";
     //Attach the information to the cards
     face.src = item.imgSrc;
-    // back = item.explanation;
+    // back = item.name;
 
-    card.setAttribute("name", item.explanation);
+    card.setAttribute("name", item.name);
 
     //Attach the cards to the section
     section.appendChild(card);
@@ -156,6 +152,7 @@ const checkCards = (e) => {
       if (playerLives === 0) {
         setTimeout(() => {
           restartGame("Try better next time! Don't give up.");
+          //
         }, 1000);
       }
     }
@@ -181,7 +178,7 @@ const restartGame = (text) => {
     setTimeout(() => {
       cards[index].style.pointerEvents = "all";
       faces[index].src = item.imgSrc;
-      cards[index].setAttribute("name", item.explanation);
+      cards[index].setAttribute("name", item.name);
       section.style.pointerEvents = "all";
     }, 1000);
   });
@@ -191,78 +188,46 @@ const restartGame = (text) => {
   setTimeout(() => window.alert(text), 100);
 };
 
+window.addEventListener("scroll", function () {
+  let header = this.document.querySelector("header");
+  header.classList.toggle("sticky", this.window.scrollY > 0);
+});
+
 generateHTMLCard();
 
-// const getData = () => [
-//   {
-//     imgSrc: "./img/developer.png",
-//     // methodName: "Math.abs(x)",
-//     explanation: "Returns the absolute value of x.",
-//   },
-//   {
-//     methodName: "Math.ceil(x)",
-//     explanation: "Returns the smallest integer greater than or equal to x.",
-//   },
-//   {
-//     methodName: "Math.exp(x)",
-//     explanation:
-//       "Returns e^x, where x is the argument, and e is Euler's constant - 2.718…",
-//   },
-//   {
-//     methodName: "Math.floor(x)",
-//     explanation: "Returns the largest integer less than or equal to x.",
-//   },
-//   {
-//     methodName: "Math.fround(x)",
-//     explanation:
-//       "Returns the nearest single precision float representation of x.",
-//   },
-//   {
-//     methodName: "Math.imul(x, y)",
-//     explanation:
-//       "Returns the result of the 32-bit integer multiplication of x and y.",
-//   },
-//   {
-//     methodName: "Math.log10(x)",
-//     explanation: "Returns the base-10 logarithm of x.",
-//   },
-//   {
-//     methodName: "Math.log2(x)",
-//     explanation: "Returns the base-2 logarithm of x.",
-//   },
-//   {
-//     methodName: "Math.max([x[, y[, …]]])",
-//     explanation: "Returns the largest of zero or more numbers.",
-//   },
-//   {
-//     methodName: "Math.min([x[, y[, …]]])",
-//     explanation: "Returns the smallest of zero or more numbers.",
-//   },
-//   {
-//     methodName: "Math.pow(x, y)",
-//     explanation: "Returns base x to the exponent power y (that is, x^y).",
-//   },
-//   {
-//     methodName: "Math.random()",
-//     explanation: "Returns a pseudo-random number between 0 and 1.",
-//   },
-//   {
-//     methodName: "Math.round(x)",
-//     explanation:
-//       "Returns the value of the number x rounded to the nearest integer.",
-//   },
-//   {
-//     methodName: "Math.sign(x)",
-//     explanation:
-//       "Returns the sign of the x, indicating whether x is positive, negative, or zero.",
-//   },
-//   {
-//     methodName: "Math.sqrt(x)",
-//     explanation: "Returns the positive square root of x.",
-//   },
-//   {
-//     methodName: "Math.trunc(x)",
-//     explanation:
-//       "Returns the integer portion of x, removing any fractional digits.",
-//   },
-// ];
+//==================================================================
+// Pop up message
+// let tailoredMessage = `
+//     <div class="modal-container">
+//       <div class="modal">
+//         <h1>🧠 Memory Game Over!</h1>
+//         <h2 > Message : ${game.restartGameMessage} </h2>
+//         <button class="game-reset">
+//           <a href="index.html">Restart Memory Game</a>
+//         </button>
+//       </div>
+//     </div>
+//   `;
+
+//   let gameEndElement = document.getElementById("game");
+//   gameEndElement.innerHTML = tailoredMessage;
+
+//   // 
+//   const close = document.getElementById("close");
+//   close.addEventListener('click', ()=>{
+//     modal-container.classList.remove('show');
+//   })
+//=======================================================
+
+
+// LIGHT and DARK THEME 
+
+let icon = document.getElementById("#icon");
+icon.onclick= function(){
+  document.body.classList.toggle("dark-theme");
+  if(document.body.classList.contains("dark-theme")){
+    icon.src = "./img/sun.png";
+  }else{
+    icon.src = "./img/moon.png";
+  }
+}
