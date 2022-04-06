@@ -7,7 +7,11 @@ playerLivesCount.textContent = playerLives;
 const getData = () => [
   {
     imgSrc: "./img/bit.png",
+<<<<<<< HEAD
     name: "bits",
+=======
+    explanation: "bits",
+>>>>>>> e73a07ab33ed427e6f9e6d3473d676814f0b86bc
   },
   {
     imgSrc: "./img/lights.png",
@@ -39,8 +43,12 @@ const getData = () => [
   },
   {
     imgSrc: "./img/bit.png",
+<<<<<<< HEAD
     // methodName: "Math.abs(x)",
     name: "bits",
+=======
+    explanation: "bits",
+>>>>>>> e73a07ab33ed427e6f9e6d3473d676814f0b86bc
   },
   {
     imgSrc: "./img/lights.png",
@@ -86,7 +94,6 @@ const randomiseCards = () => {
     [cardData[i], cardData[j]] = [cardData[j], cardData[i]];
   }
   return cardData;
-  // console.log(cardData);
 };
 
 // Generate HTML card
@@ -104,7 +111,10 @@ const generateHTMLCard = () => {
     back.classList = "back";
     //Attach the information to the cards
     face.src = item.imgSrc;
+<<<<<<< HEAD
     // back = item.name;
+=======
+>>>>>>> e73a07ab33ed427e6f9e6d3473d676814f0b86bc
 
     card.setAttribute("name", item.name);
 
@@ -122,12 +132,11 @@ const generateHTMLCard = () => {
 
 //Check cards
 const checkCards = (e) => {
-  // console.log(e);
   const clickedCard = e.target;
   clickedCard.classList.add("flipped");
   const flippedCards = document.querySelectorAll(".flipped");
   const toggleCards = document.querySelectorAll(".toggleCard");
-  // console.log(flippedCards);
+
   if (flippedCards.length === 2) {
     if (
       flippedCards[0].getAttribute("name") ===
@@ -140,7 +149,6 @@ const checkCards = (e) => {
         card.style.pointerEvents = "none";
       });
     } else {
-      // console.log("wrong");
       flippedCards.forEach((card) => {
         card.classList.remove("flipped");
         setTimeout(() => {
@@ -157,8 +165,7 @@ const checkCards = (e) => {
       }
     }
   }
-  // Run a check to see if we won the game
-  // if all are toggledcards
+  // Run a check to see if the game was won
   if (toggleCards.length === 16) {
     setTimeout(() => {
       restartGame("You have won!");
@@ -171,7 +178,8 @@ const restartGame = (text) => {
   let cardData = randomiseCards();
   let faces = document.querySelectorAll(".face");
   let cards = document.querySelectorAll(".card");
-  // while the cards are flipping back and game is restarting,make cards unable to be clicked until the game is completely reset
+  // while the cards are flipping back and game is restarting
+  // make cards unable to be clicked until the game is completely reset
   section.style.pointerEvents = "none";
   cardData.forEach((item, index) => {
     cards[index].classList.remove("toggleCard");
