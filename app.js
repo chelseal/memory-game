@@ -10,7 +10,6 @@ playerLivesCount.textContent = playerLives;
 const getData = () => [
   {
     imgSrc: "./img/bit.png",
-    // methodName: "Math.abs(x)",
     explanation: "bits",
   },
   {
@@ -43,7 +42,6 @@ const getData = () => [
   },
   {
     imgSrc: "./img/bit.png",
-    // methodName: "Math.abs(x)",
     explanation: "bits",
   },
   {
@@ -90,7 +88,6 @@ const randomiseCards = () => {
     [cardData[i], cardData[j]] = [cardData[j], cardData[i]];
   }
   return cardData;
-  // console.log(cardData);
 };
 
 // Generate HTML card
@@ -108,7 +105,6 @@ const generateHTMLCard = () => {
     back.classList = "back";
     //Attach the information to the cards
     face.src = item.imgSrc;
-    // back = item.explanation;
 
     card.setAttribute("name", item.explanation);
 
@@ -126,12 +122,11 @@ const generateHTMLCard = () => {
 
 //Check cards
 const checkCards = (e) => {
-  // console.log(e);
   const clickedCard = e.target;
   clickedCard.classList.add("flipped");
   const flippedCards = document.querySelectorAll(".flipped");
   const toggleCards = document.querySelectorAll(".toggleCard");
-  // console.log(flippedCards);
+
   if (flippedCards.length === 2) {
     if (
       flippedCards[0].getAttribute("name") ===
@@ -144,7 +139,6 @@ const checkCards = (e) => {
         card.style.pointerEvents = "none";
       });
     } else {
-      // console.log("wrong");
       flippedCards.forEach((card) => {
         card.classList.remove("flipped");
         setTimeout(() => {
@@ -160,8 +154,7 @@ const checkCards = (e) => {
       }
     }
   }
-  // Run a check to see if we won the game
-  // if all are toggledcards
+  // Run a check to see if the game was won
   if (toggleCards.length === 16) {
     setTimeout(() => {
       restartGame("You have won!");
@@ -174,7 +167,8 @@ const restartGame = (text) => {
   let cardData = randomiseCards();
   let faces = document.querySelectorAll(".face");
   let cards = document.querySelectorAll(".card");
-  // while the cards are flipping back and game is restarting,make cards unable to be clicked until the game is completely reset
+  // while the cards are flipping back and game is restarting
+  // make cards unable to be clicked until the game is completely reset
   section.style.pointerEvents = "none";
   cardData.forEach((item, index) => {
     cards[index].classList.remove("toggleCard");
@@ -192,77 +186,3 @@ const restartGame = (text) => {
 };
 
 generateHTMLCard();
-
-// const getData = () => [
-//   {
-//     imgSrc: "./img/developer.png",
-//     // methodName: "Math.abs(x)",
-//     explanation: "Returns the absolute value of x.",
-//   },
-//   {
-//     methodName: "Math.ceil(x)",
-//     explanation: "Returns the smallest integer greater than or equal to x.",
-//   },
-//   {
-//     methodName: "Math.exp(x)",
-//     explanation:
-//       "Returns e^x, where x is the argument, and e is Euler's constant - 2.718…",
-//   },
-//   {
-//     methodName: "Math.floor(x)",
-//     explanation: "Returns the largest integer less than or equal to x.",
-//   },
-//   {
-//     methodName: "Math.fround(x)",
-//     explanation:
-//       "Returns the nearest single precision float representation of x.",
-//   },
-//   {
-//     methodName: "Math.imul(x, y)",
-//     explanation:
-//       "Returns the result of the 32-bit integer multiplication of x and y.",
-//   },
-//   {
-//     methodName: "Math.log10(x)",
-//     explanation: "Returns the base-10 logarithm of x.",
-//   },
-//   {
-//     methodName: "Math.log2(x)",
-//     explanation: "Returns the base-2 logarithm of x.",
-//   },
-//   {
-//     methodName: "Math.max([x[, y[, …]]])",
-//     explanation: "Returns the largest of zero or more numbers.",
-//   },
-//   {
-//     methodName: "Math.min([x[, y[, …]]])",
-//     explanation: "Returns the smallest of zero or more numbers.",
-//   },
-//   {
-//     methodName: "Math.pow(x, y)",
-//     explanation: "Returns base x to the exponent power y (that is, x^y).",
-//   },
-//   {
-//     methodName: "Math.random()",
-//     explanation: "Returns a pseudo-random number between 0 and 1.",
-//   },
-//   {
-//     methodName: "Math.round(x)",
-//     explanation:
-//       "Returns the value of the number x rounded to the nearest integer.",
-//   },
-//   {
-//     methodName: "Math.sign(x)",
-//     explanation:
-//       "Returns the sign of the x, indicating whether x is positive, negative, or zero.",
-//   },
-//   {
-//     methodName: "Math.sqrt(x)",
-//     explanation: "Returns the positive square root of x.",
-//   },
-//   {
-//     methodName: "Math.trunc(x)",
-//     explanation:
-//       "Returns the integer portion of x, removing any fractional digits.",
-//   },
-// ];
