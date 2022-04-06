@@ -116,7 +116,7 @@ phone     480px
 /* Modal pop up  */
 .modal-container {
   display: none;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   position: fixed;

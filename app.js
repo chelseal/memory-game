@@ -7,11 +7,7 @@ playerLivesCount.textContent = playerLives;
 const getData = () => [
   {
     imgSrc: "./img/bit.png",
-<<<<<<< HEAD
     name: "bits",
-=======
-    explanation: "bits",
->>>>>>> e73a07ab33ed427e6f9e6d3473d676814f0b86bc
   },
   {
     imgSrc: "./img/lights.png",
@@ -43,12 +39,8 @@ const getData = () => [
   },
   {
     imgSrc: "./img/bit.png",
-<<<<<<< HEAD
     // methodName: "Math.abs(x)",
     name: "bits",
-=======
-    explanation: "bits",
->>>>>>> e73a07ab33ed427e6f9e6d3473d676814f0b86bc
   },
   {
     imgSrc: "./img/lights.png",
@@ -111,10 +103,7 @@ const generateHTMLCard = () => {
     back.classList = "back";
     //Attach the information to the cards
     face.src = item.imgSrc;
-<<<<<<< HEAD
     // back = item.name;
-=======
->>>>>>> e73a07ab33ed427e6f9e6d3473d676814f0b86bc
 
     card.setAttribute("name", item.name);
 
@@ -230,12 +219,12 @@ generateHTMLCard();
 
 // LIGHT and DARK THEME 
 
-let icon = document.getElementById("#icon");
-icon.onclick= function(){
-  document.body.classList.toggle("dark-theme");
-  if(document.body.classList.contains("dark-theme")){
-    icon.src = "./img/sun.png";
-  }else{
-    icon.src = "./img/moon.png";
-  }
-}
+// let icon = document.getElementById("#icon");
+// icon.onclick= function(){
+//   document.body.classList.toggle("dark-theme");
+//   if(document.body.classList.contains("dark-theme")){
+//     icon.src = "./img/sun.png";
+//   }else{
+//     icon.src = "./img/moon.png";
+//   }
+// }
