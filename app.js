@@ -1,76 +1,74 @@
 const section = document.querySelector("section");
-
 const playerLivesCount = document.querySelector("span");
-
 let playerLives = 16;
-
 playerLivesCount.textContent = playerLives;
 
 // Generate the data
 const getData = () => [
   {
     imgSrc: "./img/bit.png",
-    explanation: "bits",
+    name: "bits",
   },
   {
     imgSrc: "./img/lights.png",
-    explanation: "lights",
+    name: "lights",
   },
   {
     imgSrc: "./img/link.png",
-    explanation: "link",
+    name: "link",
   },
   {
     imgSrc: "./img/pin.png",
-    explanation: "pin",
+    name: "pin",
   },
   {
     imgSrc: "./img/set_up.png",
-    explanation: "set-up",
+    name: "set-up",
   },
   {
     imgSrc: "./img/sushi.png",
-    explanation: "sushi",
+    name: "sushi",
   },
   {
     imgSrc: "./img/tree.png",
-    explanation: "tree",
+    name: "tree",
   },
   {
     imgSrc: "./img/voting.png",
-    explanation: "voting",
+    name: "voting",
   },
   {
     imgSrc: "./img/bit.png",
-    explanation: "bits",
+    // methodName: "Math.abs(x)",
+    name: "bits",
   },
   {
     imgSrc: "./img/lights.png",
-    explanation: "lights",
+    name: "lights",
   },
   {
     imgSrc: "./img/link.png",
-    explanation: "link",
+    name: "link",
   },
   {
     imgSrc: "./img/pin.png",
-    explanation: "pin",
+    name: "pin",
   },
   {
     imgSrc: "./img/set_up.png",
-    explanation: "set-up",
+    name: "set-up",
   },
   {
     imgSrc: "./img/sushi.png",
-    explanation: "sushi",
+    name: "sushi",
   },
   {
     imgSrc: "./img/tree.png",
-    explanation: "tree",
+    name: "tree",
   },
   {
     imgSrc: "./img/voting.png",
-    explanation: "voting",
+    name: "voting",
   },
 ];
 
@@ -105,8 +103,9 @@ const generateHTMLCard = () => {
     back.classList = "back";
     //Attach the information to the cards
     face.src = item.imgSrc;
+    // back = item.name;
 
-    card.setAttribute("name", item.explanation);
+    card.setAttribute("name", item.name);
 
     //Attach the cards to the section
     section.appendChild(card);
@@ -150,6 +149,7 @@ const checkCards = (e) => {
       if (playerLives === 0) {
         setTimeout(() => {
           restartGame("Try better next time! Don't give up.");
+          //
         }, 1000);
       }
     }
@@ -175,7 +175,7 @@ const restartGame = (text) => {
     setTimeout(() => {
       cards[index].style.pointerEvents = "all";
       faces[index].src = item.imgSrc;
-      cards[index].setAttribute("name", item.explanation);
+      cards[index].setAttribute("name", item.name);
       section.style.pointerEvents = "all";
     }, 1000);
   });
@@ -185,4 +185,46 @@ const restartGame = (text) => {
   setTimeout(() => window.alert(text), 100);
 };
 
+window.addEventListener("scroll", function () {
+  let header = this.document.querySelector("header");
+  header.classList.toggle("sticky", this.window.scrollY > 0);
+});
+
 generateHTMLCard();
+
+//==================================================================
+// Pop up message
+// let tailoredMessage = `
+//     <div class="modal-container">
+//       <div class="modal">
+//         <h1>🧠 Memory Game Over!</h1>
+//         <h2 > Message : ${game.restartGameMessage} </h2>
+//         <button class="game-reset">
+//           <a href="index.html">Restart Memory Game</a>
+//         </button>
+//       </div>
+//     </div>
+//   `;
+
+//   let gameEndElement = document.getElementById("game");
+//   gameEndElement.innerHTML = tailoredMessage;
+
+//   // 
+//   const close = document.getElementById("close");
+//   close.addEventListener('click', ()=>{
+//     modal-container.classList.remove('show');
+//   })
+//=======================================================
+
+
+// LIGHT and DARK THEME 
+
+// let icon = document.getElementById("#icon");
+// icon.onclick= function(){
+//   document.body.classList.toggle("dark-theme");
+//   if(document.body.classList.contains("dark-theme")){
+//     icon.src = "./img/sun.png";
+//   }else{
+//     icon.src = "./img/moon.png";
+//   }
+// }
