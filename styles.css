@@ -8,7 +8,6 @@
 
 body {
   /* height: 100vh; */
-  background: #74ebd5;
   background: linear-gradient(to right, #acbedf, #74ebd5);
   display: flex;
   justify-content: center;
@@ -17,6 +16,7 @@ body {
   /* Make h1 tag - kep it in sight  */
   margin-top: 100px !important;
   position: relative;
+  transition: background 0.5s ease;
 }
 
 header {
@@ -99,6 +99,13 @@ phone     480px
     width: 80px;
     height: 80px;
   }
+
+  .fas {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 900px) {
@@ -106,12 +113,30 @@ phone     480px
     width: 130px;
     height: 130px;
   }
+
+  .fas {
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+  }
 }
 
 @media screen and (min-width: 900px) and (max-width: 1200px) {
-
+  .fas {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 200px;
+  }
 }
 
+@media screen and (min-width: 1200px) {
+  .fas {
+    position: absolute;
+    left: 500px;
+  }
+}
 
 /* Modal pop up  */
 .modal-container {
@@ -128,12 +153,13 @@ phone     480px
   z-index: 1;
   /* Make it invisible while there are lives or life left */
   /* opacity: 0; */
-  pointer-events: none;
+  /* Due to none in pointer-events, it does not allow me to click */
+  /* pointer-events: none; */
 }
 
 .modal-container.show {
-  opacity: 1;
-  pointer-events: auto;
+  /* opacity: 1; */
+  display: flex !important;
 }
 
 .modal {
@@ -169,16 +195,25 @@ h2 {
 /* =============================================== */
 /*             Light and dark theme                */
 /* =============================================== */
-.dark-theme {
-  --primary-color: linear-gradient(to right, #101825, #080d29);
-  --secondary-color: #c8b6b6;
-}
 
-.light-dark {
+.game_info {
+  display: flex;
+}
+.fas {
   cursor: pointer;
+
+  color: darkblue;
+  transform: rotate(-25deg);
 }
 
-#icon {
-  float: right !important;
-  width: 30px;
+body.dark .fas {
+  color: #f4b400;
+}
+body.dark {
+  background-image: linear-gradient(to right, #101825, #4e61d3) !important;
+}
+
+body.dark h1,
+body.dark h2 {
+  color: lightgreen !important;
 }

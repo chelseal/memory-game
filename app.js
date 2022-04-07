@@ -156,6 +156,7 @@ const checkCards = (e) => {
   }
   // Run a check to see if the game was won
   if (toggleCards.length === 16) {
+  // if (true) {
     setTimeout(() => {
       restartGame("You have won!");
     }, 1000);
@@ -167,6 +168,10 @@ const restartGame = (text) => {
   let cardData = randomiseCards();
   let faces = document.querySelectorAll(".face");
   let cards = document.querySelectorAll(".card");
+  let game_end_message = document.querySelector("#game_end_message");
+  let modal_message = document.querySelector("#game_end_message h2");
+  modal_message.textContent = text;
+  game_end_message.classList.add('show');
   // while the cards are flipping back and game is restarting
   // make cards unable to be clicked until the game is completely reset
   section.style.pointerEvents = "none";
@@ -182,49 +187,45 @@ const restartGame = (text) => {
   //reset playerLives
   playerLives = 16;
   playerLivesCount.textContent = playerLives;
-  setTimeout(() => window.alert(text), 100);
+  // setTimeout(() => window.alert(text), 100);
 };
 
-window.addEventListener("scroll", function () {
-  let header = this.document.querySelector("header");
-  header.classList.toggle("sticky", this.window.scrollY > 0);
-});
+// window.addEventListener("scroll", function () {
+//   let gameInfo = this.document.querySelector("game_info");
+//   gameInfo.classList.toggle("sticky", this.window.scrollY > 0);
+// });
 
 generateHTMLCard();
 
-//==================================================================
-// Pop up message
-// let tailoredMessage = `
-//     <div class="modal-container">
-//       <div class="modal">
-//         <h1>🧠 Memory Game Over!</h1>
-//         <h2 > Message : ${game.restartGameMessage} </h2>
-//         <button class="game-reset">
-//           <a href="index.html">Restart Memory Game</a>
-//         </button>
-//       </div>
-//     </div>
-//   `;
 
-//   let gameEndElement = document.getElementById("game");
-//   gameEndElement.innerHTML = tailoredMessage;
-
-//   // 
-//   const close = document.getElementById("close");
-//   close.addEventListener('click', ()=>{
-//     modal-container.classList.remove('show');
-//   })
+//=======================================================
+// LIGHT and DARK THEME 
 //=======================================================
 
+const darkBtn = document.querySelector('.fas');
+const bodyDark = document.querySelector('body');
+const darkMode = ()=>{
+  bodyDark.classList.toggle('dark');
+  // console.log("Change to dark", bodyDark);
+}
 
-// LIGHT and DARK THEME 
+darkBtn.addEventListener('click', ()=>{
+  // On every click, get value of dark item from the local storage 
+  setDarkMode = localStorage.getItem('dark');
+  if(setDarkMode !== 'on'){
+    darkMode();
+    setDarkMode = localStorage.setItem('dark', 'on');
+  }else{
+    darkMode();
+    setDarkMode = localStorage.setItem('dark', null);
+  }
+});
+// darkBtn.addEventListener('click',()=>{
+//   console.log("Clicked");
+// });
 
-// let icon = document.getElementById("#icon");
-// icon.onclick= function(){
-//   document.body.classList.toggle("dark-theme");
-//   if(document.body.classList.contains("dark-theme")){
-//     icon.src = "./img/sun.png";
-//   }else{
-//     icon.src = "./img/moon.png";
-//   }
-// }
+// get value of the dark item from the local storage
+let setDarkMode = localStorage.getItem('dark');
+if(setDarkMode === 'on'){
+  darkMode();
+}
