@@ -126,9 +126,13 @@ const generateHTMLCard = () => {
   });
 };
 
-const generateRestartButton = () => {
+const restartButton = () => {
+  //set styles
   button.classList.add("btn");
   button.setAttribute("type", "button");
+  //remove pop alert() modal
+  window.alert = function () { return false };
+  //execute restartGame function when clicked
   button.addEventListener("click", restartGame);
 };
 
@@ -200,7 +204,7 @@ const restartGame = (text) => {
 };
 
 generateHTMLCard();
-generateRestartButton();
+restartButton();
 
 // const getData = () => [
 //   {
