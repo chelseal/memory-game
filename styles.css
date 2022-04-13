@@ -29,20 +29,25 @@ header {
 header.sticky {
   padding: 50px;
 }
-/* sticky : relative + fixed  */
-section {
-  /* display: grid;
+
+/* styles for previous display option: grid */
+/*   display: grid;
   grid-template-columns: repeat(4, 8rem);
   grid-template-rows: repeat(4, 8rem);
+  grid-gap: 2rem;
+  perspective: 800px; required for preserve-3d on .card
   grid-gap: 1rem; */
-  /* perspective: 800px; required for preserve-3d on .card */
+
+/* sticky : relative + fixed  */
+section {
   z-index: 1;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   gap: 5px;
   flex-wrap: wrap;
   padding: 1rem; /* adds space between cards and Lives counter */
   position: sticky;
+  perspective: 800px; /* required for preserve-3d on .card */
   /* for responsive role */
   width: 100%;
   height: 500px;
@@ -51,6 +56,28 @@ section {
 
 img {
   transform: rotateY(180deg); /* card faces correct direction - L to R */
+}
+
+.btn {
+  margin: 1rem;
+  padding: 0.5rem;
+  height: 100vh;
+  width: 15vw;
+  background-color: transparent;
+  border: 2px solid cadetblue;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 1px cadetblue;
+  font-size: 1rem;
+  cursor: pointer;
+  /* touch-action: manipulation; */
+}
+
+.btn:hover {
+  background-color: #ccfcf3;
+}
+
+.btn:active {
+  box-shadow: 1px 1px 1px cadetblue;
 }
 
 /* To prevent images overflowing  */
