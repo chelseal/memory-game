@@ -42,9 +42,9 @@ The app features/specifications outline is as follows.
 - **Card toggle:** completed ✔
 - **Game reset:** completed ✔
 - **Lives counter:** completed ✔
-- **Modal for win/loss**
-- **Dark & light mode**
-- **Responsive layout**
+- **Modal for win/loss:** completed ✔
+- **Dark & light mode:** completed ✔
+- **Responsive layout:** completed ✔
 
 ### Manual Testing
 
@@ -71,9 +71,9 @@ The app features/specifications outline is as follows.
 
 _In wanting to further personalise the app we..._
 
-- Added some fun features and culled those that wouldn't add value _(todo)_
-- Divided and built out new features _(todo)_
-- Tweaked UI _(todo)_
+- Added some fun features and culled those that wouldn't add value
+- Divided and built out new features using Notion
+- Tweaked UI
 - Did more manual testing _(todo)_
 - Hosted the game _(todo)_
 
@@ -96,7 +96,7 @@ _In wanting to further personalise the app we..._
 
 | Technical                                                                                                                 | Non-technical                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| <span style="background-color:mintcream">DOM manipulation, Git & GitHub GUI, debugging</span>                             | <span style="background-color:oldlace">Collaborating, making thoughtful decisions, staying organised</span> |
+| <span style="background-color:mintcream">Summary: DOM manipulation, Git & GitHub GUI, debugging</span>                             | <span style="background-color:oldlace">Summary: Collaborating, making thoughtful decisions, staying organised</span> |
 | Grew my knowledge about manipulating the <span style="color:cadetblue">DOM</span>.                                        | Learnt that discussing tasks before dividing and coding them made coding quicker and a smoother experience. |
 | Learnt more about how <span style="color:cadetblue">Git</span> works through collaborating, submitting and reviewing PRs. | Considered the value of the feature and impact of the bug before we built or fixed it.                      |
 | Learnt how to <span style="color:cadetblue">fix branch and pull request challenges</span> I ran into.                     | Using Notion helped me to stay up-to-date with my coding tasks, would use it again.                         |
