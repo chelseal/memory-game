@@ -56,6 +56,7 @@ section {
 
 img {
   transform: rotateY(180deg); /* card faces correct direction - L to R */
+  border-radius: 0.5rem;
 }
 
 .btn {
@@ -87,7 +88,8 @@ img {
   position: relative;
   transform-style: preserve-3d;
   transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px; /* args = x , y axis, blur */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 15px; /* args = x , y axis, blur */
+  border-radius: 0.5rem;
 }
 
 .face,
@@ -96,6 +98,12 @@ img {
   height: 100%;
   position: absolute;
   pointer-events: none;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.face {
+  border: 2px solid #ccfcf3;
 }
 
 .back {
