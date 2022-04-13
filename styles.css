@@ -2,29 +2,56 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  --primary-color: linear-gradient(to right, #acbedf, #74ebd5);
+  --secondary-color: #212121;
 }
 
 body {
-  margin-top: 4rem; /* prevents elements from moving off top of page */
-  height: 100vh;
-  background: linear-gradient(
-    to right,
-    #acbedf,
-    #74ebd5
-  );
+  /* height: 100vh; */
+  background: linear-gradient(to right, #acbedf, #74ebd5);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  /* Make h1 tag - kep it in sight  */
+  margin-top: 100px !important;
+  position: relative;
+  transition: background 0.5s ease;
 }
 
-section {
-  display: grid;
+header {
+  position: fixed;
+  top: 0;
+  width: auto;
+  /* height: 100%; */
+}
+
+header.sticky {
+  padding: 50px;
+}
+
+/* styles for previous display option: grid */
+/*   display: grid;
   grid-template-columns: repeat(4, 8rem);
   grid-template-rows: repeat(4, 8rem);
   grid-gap: 2rem;
-  perspective: 800px; /* required for preserve-3d on .card */
+  perspective: 800px; required for preserve-3d on .card
+  grid-gap: 1rem; */
+
+/* sticky : relative + fixed  */
+section {
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  flex-wrap: wrap;
   padding: 1rem; /* adds space between cards and Lives counter */
+  position: sticky;
+  perspective: 800px; /* required for preserve-3d on .card */
+  /* for responsive role */
+  width: 100%;
+  height: 500px;
+  max-width: 600px;
 }
 
 img {
@@ -55,13 +82,16 @@ img {
 
 /* To prevent images overflowing  */
 .card {
+  width: 24%;
+  height: 24%;
   position: relative;
   transform-style: preserve-3d;
   transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px; /* args = x , y axis, blur */
 }
 
-.face, .back {
+.face,
+.back {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -73,6 +103,144 @@ img {
   backface-visibility: hidden;
 }
 
-.toggleCard { /* animation */
-    transform: rotateY(180deg);
+.toggleCard {
+  /* animation */
+  transform: rotateY(180deg);
+}
+
+/* Responsive Design  */
+/* all : screen, text, print  */
+/* viewport 
+=====================
+desktop   1200px
+laptop    1024px
+tablet    768px
+phone     480px 
+*/
+
+@media screen and (max-width: 600px) {
+  section {
+    justify-content: center;
+  }
+  .card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .fas {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+  .card {
+    width: 130px;
+    height: 130px;
+  }
+
+  .fas {
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .fas {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 200px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .fas {
+    position: absolute;
+    left: 500px;
+  }
+}
+
+/* Modal pop up  */
+.modal-container {
+  display: none;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  /* Make it invisible while there are lives or life left */
+  /* opacity: 0; */
+  /* Due to none in pointer-events, it does not allow me to click */
+  /* pointer-events: none; */
+}
+
+.modal-container.show {
+  /* opacity: 1; */
+  display: flex !important;
+}
+
+.modal {
+  background-color: white;
+  width: 500px;
+  max-width: 100%;
+  padding: 30px 50px;
+  border-radius: 12px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h2 {
+  color: chocolate;
+  margin: 18px 0;
+}
+
+.game-reset {
+  background-color: #f4b400;
+  border-radius: 5px;
+  padding: 12px;
+  margin-top: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-reset a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* =============================================== */
+/*             Light and dark theme                */
+/* =============================================== */
+
+.game_info {
+  display: flex;
+}
+.fas {
+  cursor: pointer;
+
+  color: darkblue;
+  transform: rotate(-25deg);
+}
+
+body.dark .fas {
+  color: #f4b400;
+}
+body.dark {
+  background-image: linear-gradient(to right, #101825, #4e61d3) !important;
+}
+
+body.dark h1,
+body.dark h2 {
+  color: lightgreen !important;
 }
