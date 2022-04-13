@@ -8,7 +8,7 @@ This repository contains the **_Memory Game_** application project code. This RE
 
 The expected memory game logic applies for this application where the user tests their memory by seeing if they can match all identical images within a certain number of turns.
 
-<!-- - Deployed Site: [Memory game App]() -->
+Deployed Site: [Memory Game App](https://chelseal.github.io/memory-game/)
 
 Contributors: [Chelsea](https://github.com/chelseal) & [Su](https://github.com/ktSuW)
 
