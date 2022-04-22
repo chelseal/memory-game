@@ -120,14 +120,42 @@ const generateHTMLCard = () => {
   });
 };
 
+//=======================================================
+// Button: game reset
+//=======================================================
+
 const restartButton = () => {
   //set styles
   button.classList.add("btn");
   button.setAttribute("type", "button");
-  //remove pop alert() modal
-  window.alert = function () { return false };
-  //execute restartGame function when clicked
-  button.addEventListener("click", restartGame);
+
+  //execute restartGameButton function when clicked
+  button.addEventListener("click", restartGameButton);
+};
+
+//=======================================================
+// restart function without modal pop-up
+//=======================================================
+
+const restartGameButton = () => {
+  let cardData = randomiseCards();
+  let faces = document.querySelectorAll(".face");
+  let cards = document.querySelectorAll(".card");
+  // while the cards are flipping back and game is restarting
+  // make cards unable to be clicked until the game is completely reset
+  section.style.pointerEvents = "none";
+  cardData.forEach((item, index) => {
+    cards[index].classList.remove("toggleCard");
+    setTimeout(() => {
+      cards[index].style.pointerEvents = "all";
+      faces[index].src = item.imgSrc;
+      cards[index].setAttribute("name", item.name);
+      section.style.pointerEvents = "all";
+    }, 1000);
+  });
+  //reset playerLives
+  playerLives = 16;
+  playerLivesCount.textContent = playerLives;
 };
 
 //Check cards
@@ -209,13 +237,13 @@ const restartGame = (text) => {
 generateHTMLCard();
 restartButton();
 
-
 //=======================================================
 // LIGHT and DARK THEME 
 //=======================================================
 
 const darkBtn = document.querySelector('.fas');
 const bodyDark = document.querySelector('body');
+
 const darkMode = ()=>{
   bodyDark.classList.toggle('dark');
   // console.log("Change to dark", bodyDark);
